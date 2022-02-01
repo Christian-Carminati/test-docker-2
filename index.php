@@ -1,5 +1,6 @@
 <?php
     $file_data = json_decode(file_get_contents("dati.json"));
+    $d;
     foreach ($file_data as $key => $value) {
         $d = $value -> dato;
         echo "[$key] $d<br>";
