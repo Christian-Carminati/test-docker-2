@@ -1,0 +1,31 @@
+services:
+  sito:
+    container_name: sito
+    build: 
+      context: sito
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+    volumes:
+      - ./sito:/var/www/html/
+  sito2:
+    container_name: sito2
+    build: 
+      context: sito2
+      dockerfile: Dockerfile
+    ports:
+      - 8081:80
+    volumes:
+      - ./sito2:/var/www/html/
+  nginx:
+    build:
+      context: nginx/
+    ports:
+      - 8000:80
+    depends_on:
+      - sito
+      - sito2    
+
+
+volumes:
+  sito:
