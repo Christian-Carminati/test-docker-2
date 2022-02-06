@@ -5,7 +5,7 @@ services:
       context: sito
       dockerfile: Dockerfile
     ports:
-      - 8080:80
+      - 5001:80
     volumes:
       - ./sito:/var/www/html/
   sito2:
@@ -14,14 +14,14 @@ services:
       context: sito2
       dockerfile: Dockerfile
     ports:
-      - 8081:80
+      - 5002:80
     volumes:
       - ./sito2:/var/www/html/
   nginx:
     build:
       context: nginx/
     ports:
-      - 8000:80
+      - 5000:80
     depends_on:
       - sito
       - sito2    
